@@ -14,51 +14,70 @@ var cheerio = require('cheerio');
 var app = express(); // Starting the express()
 var portName = '8081';
 const BASE = '/';
+var json = {nytimes: "", buzzfeed: ""};
 
 app.get(BASE, function(req,res){
 
-  url = 'http://www.imdb.com/title/tt2085059/'; // URL to scrape
+  /* Scrape */
+  nytimes = 'http://www.nytimes.com/';
+  buzzfeed = 'https://www.buzzfeed.com/';
 
-  request(url, function(error, response, html){
+  request(nytimes, function(error, response, html){
 
      if(!error){  // Check for no errors
+       /* Cheerio for jQuery functionality */
+       var $ = cheerio.load(html);
+       /* Variables to capture */
+       var titles = []
+       /* JSON file */
 
-       var $ = cheerio.load(html);  // Cheerio for jQuery functionality
+      /* Search for all News Heading in the NYTimes */
+      $('.story-heading').each(function(){
+        var title = $(this).text();
+        title = title.replace(/\s+/g, ' ');
+        if(title != ""){
+          titles.push(title);
+        }
+        json.nytimes = titles;
+      })
+     }
+  })
 
-       // Variables to capture
-       var title, release, rating;
-       var json = {title: "", release: "", rating: ""}
 
-        // Get the title and release which are in the same div
-        $('.title_wrapper').filter(function(){
-          var data = $(this);
-          title = data.children().first().text();   // In examining the DOM we notice that the title rests within the first child element of the header tag.
-          release = data.children().last().children().last().text();
+  request(buzzfeed, function(error, response, html){
 
-          json.title = title;
-          json.release = release;
-        })
+     if(!error){  // Check for no errors
+       /* Cheerio for jQuery functionality */
+       var $ = cheerio.load(html);
+       /* Variables to capture */
+       var titles = []
 
-        // Get the Rating
-        $('.ratingValue').filter(function() {
-        var data = $(this);
-
-        rating = data.children().first().children().first().text();
-        json.rating = rating;
-        });
-
+      /* Search for all News Heading in the NYTimes */
+      $('h2').each(function(){
+        var title = $(this).text();
+        title = title.replace(/\s+/g, ' ');
+        if(title != ""){
+          titles.push(title);
+        }
+        json.buzzfeed = titles;
+      })
      }
 
-    // Output everything to a JSON file
+    /* Output everything to a JSON file */
     fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err){
-      console.log('File successfully written! - Check your project directory for the output.json file');
+      console.log('NY Times pages scrapped - Check for output.json');
     })
-    res.send('Check your console!')
-
+    /*Send a response */
+    res.send('All good!')
   })
+  /* Scrape */
+
+
+
+
 })
 
+/* Start the server */
 app.listen(portName);
 console.log('Server running at ' + portName);
-
 exports = module.exports = app;

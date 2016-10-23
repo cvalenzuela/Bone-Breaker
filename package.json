@@ -2,7 +2,8 @@
   "name": "scrapper",
   "version": "1.0.0",
   "description": "a basic web scrapper mix tool",
-  "main": "index.js",
+  "start":"node server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
