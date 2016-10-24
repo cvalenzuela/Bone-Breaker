@@ -6,16 +6,22 @@ body{
 }
 
 p{
-  font-size: 15px;
+  font-size: 12px;
   color:black;
 }
 
 h1{
-  font-size: 70px;
+  font-size: 35px;
+}
+
+img{
+  max-width: 200px;
+  margin: 0;
+  padding: 0;
 }
 
 h5{
-  font-size: 35px;
+  font-size: 18px;
   display: inline-block;
   padding: 2px 10px;
   background: #cdcdcd;
@@ -32,7 +38,7 @@ h5{
 .description{
   font-family: 'Abhaya Libre', serif;
   font-weight: 100;
-  padding: 20px;
+  padding-bottom: 50px;
 }
 
 button{
@@ -40,9 +46,9 @@ button{
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;
-  padding: 18px 45px;
-  font-size: 30px;
   border: none;
+  padding: 8px 16px;
+  font-size: 20px;
 }
 
 .message{
@@ -63,5 +69,5 @@ button{
 }
 
 .firsttitle{
-  border-right: 5px solid black;
+  border-right: 2px solid black;
 }
