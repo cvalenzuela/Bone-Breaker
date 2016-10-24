@@ -162,6 +162,6 @@ function getRandomIntInclusive(min, max) {
 
 
 /* Start the server */
-app.listen(portName);
+app..listen(process.env.PORT || portName);
 console.log('Server running at ' + portName);
 exports = module.exports = app;
