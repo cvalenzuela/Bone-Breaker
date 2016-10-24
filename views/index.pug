@@ -1,8 +1,30 @@
 extends layout
 
 block content
-  h4 Bone Breaker
-  form(method='POST' action='/breaker')
-    button Breaker!
 
-  h1=message
+  if(titletwo != undefined)
+    .row.text-center
+      .col-md-5.col-md-offset-1.firsttitle
+        .row
+          .col-md-12.nytimes
+            b
+              p New York Times
+        .row
+          .col-md-12
+            p=titleone
+
+      .col-md-5.buzzfeed
+        .row
+          .col-md-12
+            b
+              p Buzzfeed
+        .row
+          .col-md-12
+            p=titletwo
+
+  .col-md-12.text-center.message
+    h1=message
+
+  .col-md-6.col-md-offset-3.text-center.button
+    form(method='POST' action='/breaker')
+      button Breaker!

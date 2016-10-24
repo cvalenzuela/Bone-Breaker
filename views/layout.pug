@@ -1,10 +1,23 @@
 doctype html
 html
   head
-    Bone Breaker
+    title Bone Breaker
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Abhaya+Libre" rel="stylesheet")
+    link(href='/css/style.css', rel='stylesheet')
   body
-    Bone Breaker
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center.logo
+          img(src='img/logo.png')
+      .row
+        .col-md-6.col-md-offset-3.text-center.description
+          h5 News that matter
 
-    block content
+      .row
+        block content
 
-    p Copyright 2016
+    .container
+      .row
+        .copyright.text-center
+          p 3laab.com

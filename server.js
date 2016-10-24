@@ -134,7 +134,7 @@ app.post(BASE+'breaker', function(req,res){
           var changeVerb =  nlp.sentence(changeNoun).replace(randomVerbNyTimes, randomVerbBuzzfeed).text();
           console.log("Final Mix: " + changeVerb);
 
-          res.render("index.pug",{message:changeVerb})
+          res.render("index.pug",{message:changeVerb,titleone:randomArticleNytimes,titletwo:randomArticleBuzzfeed})
           // res.send(changeVerb);
         }
         catch(err){
@@ -143,8 +143,8 @@ app.post(BASE+'breaker', function(req,res){
         }
       }
       else{
-      console.log("Could not load Buzzfeed, try again")
-      res.render("index.pug", {message:"Could not load Buzzfeed, try again"});
+      console.log("Sometimes pages don't like being scraped. Please try again!")
+      res.render("index.pug", {message:"Sometimes pages don't like being scraped. Please try again!"});
       // res.sendFile(__dirname + '/index.html');
       // res.send("Could not load Buzzfeed, try again");
       }

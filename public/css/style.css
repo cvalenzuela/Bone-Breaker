@@ -1,0 +1,67 @@
+body{
+  background:#ecf0f1;
+  font-family: 'Abhaya Libre', serif;
+  background-image: url('/img/background.jpg');
+  background-size: cover;
+}
+
+p{
+  font-size: 15px;
+  color:black;
+}
+
+h1{
+  font-size: 70px;
+}
+
+h5{
+  font-size: 35px;
+  display: inline-block;
+  padding: 2px 10px;
+  background: #cdcdcd;
+}
+
+.nytimes{
+  font-family: serif;
+}
+
+.logo{
+  margin-top: 150px;
+}
+
+.description{
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 100;
+  padding: 20px;
+}
+
+button{
+  background-image: url('/img/buttonbackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  padding: 18px 45px;
+  font-size: 30px;
+  border: none;
+}
+
+.message{
+  padding: 100px;
+}
+
+.copyright{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.buzzfeed{
+  font-family: 'Helvetica', sans-serif;
+  font-size: 13px;
+}
+
+.firsttitle{
+  border-right: 5px solid black;
+}
