@@ -39,7 +39,8 @@ app.post(BASE+'breaker', function(req,res){
 
   /* urls */
   nytimes = 'http://www.nytimes.com/';
-  buzzfeed = 'https://www.buzzfeed.com/';
+  buzzfeed = 'http://www.theonion.com/';
+
 
   /* New York Times */
   request(nytimes, function(error, response, html){
@@ -48,7 +49,7 @@ app.post(BASE+'breaker', function(req,res){
        /* Cheerio for jQuery functionality */
        var $ = cheerio.load(html);
        /* Variables to capture */
-       var titles = []
+       var titles = [];
        /* JSON file */
 
       /* Search for all News Heading in the NYTimes */
@@ -73,15 +74,16 @@ app.post(BASE+'breaker', function(req,res){
 
        if(!error){  // Check for no errors
          /* Cheerio for jQuery functionality */
-         var $ = cheerio.load(html);
-         /* Variables to capture */
-         var titles = []
 
+         var $ = cheerio.load(html);
+
+         /* Variables to capture */
+         var titles = [];
         /* Search for all News Heading in the Buzzfeed */
         $('h2').each(function(){
           var title = $(this).text();
           title = title.replace(/\s+/g, ' ');
-          if(title != "" && title.length > 2){
+          if(title != ""){
             if(title.charAt(0) === ' '){
               title = title.substr(1);
             }
@@ -138,7 +140,7 @@ app.post(BASE+'breaker', function(req,res){
           // res.send(changeVerb);
         }
         catch(err){
-          //console.log(err);
+          console.log(err);
           writeFile();
         }
       }

@@ -11,7 +11,7 @@ p{
 }
 
 h1{
-  font-size: 35px;
+  font-size: 30px;
 }
 
 img{
@@ -32,7 +32,7 @@ h5{
 }
 
 .logo{
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .description{
@@ -52,7 +52,12 @@ button{
 }
 
 .message{
-  padding: 100px;
+  padding: 50px;
+  background-image: url('/img/newspaper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .copyright{
@@ -69,5 +74,15 @@ button{
 }
 
 .firsttitle{
-  border-right: 2px solid black;
+  padding: 50px;
+  background-image: url('/img/newstwo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.secondtitle{
+  padding: 50px;
+  background-image: url('/img/newsone.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
